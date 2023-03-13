@@ -99,5 +99,9 @@ else
     FLAGS+=( --start-server "$SAVE_NAME" )
 fi
 
+if [ -n "$CONSOLE_LOG"]; then
+  FLAGS+=(  --console-log "/factorio/$CONSOLE_LOG")
+fi
+
 # shellcheck disable=SC2086
 exec $SU_EXEC /opt/factorio/bin/x64/factorio "${FLAGS[@]}" "$@"
